@@ -1,3 +1,4 @@
+import Sitemap from "./components/Sitemap";
 import LenisScroll from "./components/lenis-scroll";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -13,7 +14,10 @@ import PricingPlans from "./sections/pricing-plans";
 import CallToAction from "./sections/call-to-action";
 //
 import ContactSalesPage from "./components/ContactSalesPage";
+import TermsOfService from "./components/TermsOfService";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import { useState } from "react";
+import SecurityPolicy from "./components/SecurityPolicy";
 // ...existing code...
 
 export default function App() {
@@ -27,6 +31,18 @@ export default function App() {
     }
     if (page === "contactsales") {
         return <ContactSalesPage />;
+    }
+    if (page === "terms") {
+        return <TermsOfService onBack={() => setPage("main")} />;
+    }
+    if (page === "privacy") {
+        return <PrivacyPolicy onBack={() => setPage("main")} />;
+    }
+    if (page === "sitemap") {
+        return <Sitemap onBack={() => setPage("main")} />;
+    }
+    if (page === "security") {
+        return <SecurityPolicy onBack={() => setPage("main")} />;
     }
     return (
         <>
@@ -46,7 +62,12 @@ export default function App() {
                 <section id="pricing"><PricingPlans onPlanClick={() => setPage("signup")} onContactSales={() => setPage("contactsales")} /></section>
                 <section id="cta"><CallToAction onTryNowClick={() => setPage("signup")} /></section>
             </main>
-            <Footer />
+            <Footer 
+                onTermsClick={() => setPage("terms")} 
+                onPrivacyClick={() => setPage("privacy")} 
+                onSitemapClick={() => setPage("sitemap")} 
+                onSecurityClick={() => setPage("security")} 
+            />
         </>
     );
 }
