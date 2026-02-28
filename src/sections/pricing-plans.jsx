@@ -3,18 +3,18 @@ import { CheckIcon, CrownIcon, RocketIcon, ZapIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function PricingPlans() {
+export default function PricingPlans({ onPlanClick, onContactSales }) {
     const ref = useRef([]);
     const data = [
         {
             icon: RocketIcon,
             title: 'Starter',
-            description: 'For individuals and small teams',
-            price: '$19',
+            description: 'Free for 1 week',
+            price: 'Free',
             buttonText: 'Get Started',
             features: [
                 'Up to 10 projects',
-                '10 AI tasks/month',
+                '10 AI tasks/week',
                 'Basic text generation',
                 'Simple chatbot access',
                 'Email support only',
@@ -81,12 +81,24 @@ export default function PricingPlans() {
                             <span>{item.title}</span>
                         </div>
                         <h3 className='mt-4 text-2xl font-semibold'>
-                            {item.price} <span className='text-sm font-normal'>/month</span>
+                            {item.price} <span className='text-sm font-normal'>/1 weeks</span>
                         </h3>
                         <p className='text-gray-200 mt-3'>{item.description}</p>
-                        <button className={`mt-7 rounded-md w-full btn ${item.mostPopular ? 'bg-white text-gray-800' : 'glass'}`}>
-                            {item.buttonText}
-                        </button>
+                                                {item.buttonText === 'Contact Sales' ? (
+                                                    <button
+                                                        className="mt-7 rounded-md w-full btn glass border border-white/40 text-white font-semibold bg-white/10 hover:bg-white/20 transition"
+                                                        onClick={onContactSales}
+                                                    >
+                                                        {item.buttonText}
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        className={`mt-7 rounded-md w-full btn ${item.mostPopular ? 'bg-white text-gray-800' : 'glass'}`}
+                                                        onClick={onPlanClick}
+                                                    >
+                                                        {item.buttonText}
+                                                    </button>
+                                                )}
                         <div className='mt-6 flex flex-col'>
                             {item.features.map((feature, index) => (
                                 <div key={index} className='flex items-center gap-2 py-2'>

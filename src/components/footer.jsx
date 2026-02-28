@@ -16,7 +16,9 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
         >
             <a href="#!">
-                <img src='/assets/logo-nexo-global-alt.svg' alt='logo' className='h-8.5 w-auto' width={205} height={48} />
+                                <svg width="205" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-auto">
+                                    <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="28" fill="#fff" fontWeight="bold">Nexo Global</text>
+                                </svg>
             </a>
 
             <div className="flex flex-wrap items-center justify-center gap-8 py-8">

@@ -2,7 +2,7 @@ import { MenuIcon, XIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({ onContactClick, onSignUpClick }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,6 +32,7 @@ export default function Navbar() {
         };
     }, []);
 
+
     return (
         <>
             <motion.nav className={`sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3.5 md:px-16 lg:px-24 transition-colors ${isScrolled ? 'bg-white/15 backdrop-blur-lg' : ''}`}
@@ -41,18 +42,23 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
                 <a href='#!'>
-                    <img src='/assets/logo-nexo-global-alt.svg' alt='logo' className='h-8.5 w-auto' width={205} height={48} />
+                    <svg width="205" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-auto">
+                        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="28" fill="#fff" fontWeight="bold">Nexo Global</text>
+                    </svg>
                 </a>
 
                 <div className='hidden items-center space-x-10 md:flex'>
                     {links.map((link) => (
+                        link.name === 'Contact' ?
+                        <button key={link.name} type="button" className='transition hover:text-gray-300' style={{background:'none',border:'none',padding:0,margin:0}} onClick={onContactClick}>{link.name}</button>
+                        :
                         <a key={link.name} href={link.href} className='transition hover:text-gray-300'>
                             {link.name}
                         </a>
                     ))}
-                    <a href='/' className='btn glass'>
+                    <button type="button" className='btn glass' onClick={onSignUpClick}>
                         Sign Up
-                    </a>
+                    </button>
                 </div>
 
                 <button onClick={() => setIsOpen(true)} className='transition active:scale-90 md:hidden'>
@@ -62,20 +68,20 @@ export default function Navbar() {
 
             <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/20 text-lg font-medium backdrop-blur-2xl transition duration-300 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 {links.map((link) => (
+                    link.name === 'Contact' ?
+                    <button key={link.name} type="button" className='transition hover:text-gray-300' style={{background:'none',border:'none',padding:0,margin:0}} onClick={() => { setIsOpen(false); onContactClick && onContactClick(); }}>{link.name}</button>
+                    :
                     <a key={link.name} href={link.href} onClick={() => setIsOpen(false)}>
                         {link.name}
                     </a>
                 ))}
-
-
-                <a href='/' className='btn glass' onClick={() => setIsOpen(false)}>
+                <button type="button" className='btn glass w-full' onClick={() => { setIsOpen(false); onSignUpClick && onSignUpClick(); }}>
                     Sign Up
-                </a>
-
+                </button>
                 <button onClick={() => setIsOpen(false)} className='rounded-md p-2 glass'>
                     <XIcon />
                 </button>
-            </div >
+            </div>
         </>
     );
 }

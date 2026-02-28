@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function CallToAction() {
+export default function CallToAction({ onTryNowClick }) {
     return (
         <motion.div className="flex flex-col max-w-5xl mt-40 px-4 mx-auto items-center justify-center text-center py-16 rounded-xl glass"
             initial={{ y: 150, opacity: 0 }}
@@ -25,11 +25,13 @@ export default function CallToAction() {
             >
                 See how fast you can turn your ideas into reality. Get started for free, no credit card required.
             </motion.p>
-            <motion.button className="btn glass transition-none flex items-center gap-2 mt-8"
+            <motion.button
+                className="btn glass transition-none flex items-center gap-2 mt-8"
                 initial={{ y: 80, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 280, damping: 70, mass: 1 }}
+                onClick={onTryNowClick}
             >
                 Try now
                 <ArrowRightIcon className="size-4" />

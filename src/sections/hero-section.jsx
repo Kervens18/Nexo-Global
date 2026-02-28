@@ -1,7 +1,7 @@
 import { PlayCircleIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenStoreClick }) {
 
     return (
         <>
@@ -50,7 +50,7 @@ export default function HeroSection() {
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
                 >
-                    <button className="btn max-md:w-full glass py-3">
+                    <button className="btn max-md:w-full glass py-3" onClick={onOpenStoreClick}>
                         Open your store
                     </button>
                     <button className="btn max-md:w-full glass flex items-center justify-center gap-2 py-3">
