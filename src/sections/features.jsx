@@ -10,18 +10,18 @@ export default function Features() {
     const featuresData = [
         {
             icon: BotIcon,
-            title: "Autonomous Agents",
-            description: "Agents that plan, execute & think step-by-step.",
+            title: "24/7 support",
+            description: "Agents that plan, execute & help step-by-step.",
         },
         {
             icon: BrainIcon,
-            title: "Memory & Learning",
-            description: "Agents retain memory and improve over time.",
+            title: "Partners & Online courses",
+            description: "Expand your reach with partners and online learning.",
         },
         {
             icon: ZapIcon,
             title: "Real-time Execution",
-            description: "Fast responses with async task processing.",
+            description: "Fast to grow your boutique",
         }
     ];
 

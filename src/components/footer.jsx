@@ -1,4 +1,4 @@
-import { DribbbleIcon, GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -28,21 +28,21 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-6 pb-6">
                 <a href="#" className="hover:-translate-y-0.5 text-gray-200 transition-all duration-300">
-                    <DribbbleIcon />
+                    <FacebookIcon />
                 </a>
                 <a href="#" className="hover:-translate-y-0.5 text-gray-200 transition-all duration-300">
-                    <LinkedinIcon />
+                    <InstagramIcon />
                 </a>
                 <a href="#" className="hover:-translate-y-0.5 text-gray-200 transition-all duration-300">
                     <TwitterIcon />
                 </a>
                 <a href="#" className="hover:-translate-y-0.5 text-gray-200 transition-all duration-300">
-                    <GithubIcon />
+                    <YoutubeIcon />
                 </a>
             </div>
             <hr className="w-full border-white/20 mt-6" />
             <div className="flex flex-col md:flex-row items-center w-full justify-between gap-4 py-4">
-                <p>Build Ai agents for free</p>
+                <p>Build your store Online</p>
                 <p>Copyright © 2025 Nexo Global • All rights reserved</p>
             </div>
         </motion.footer>
